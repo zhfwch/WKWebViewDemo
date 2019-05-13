@@ -29,12 +29,12 @@
 
 - (void)registerHandler
 {
-    [_wkWebView.configuration.userContentController addScriptMessageHandler:[[WeakScriptMessageDelegate alloc] initWithScripteMessageDelegate:self] name:@"umsPay"];
-    [_wkWebView.configuration.userContentController addScriptMessageHandler:[[WeakScriptMessageDelegate alloc] initWithScripteMessageDelegate:self] name:@"umsSetUpDevice"];
+    [_wkWebView.configuration.userContentController addScriptMessageHandler:[[WeakScriptMessageDelegate alloc] initWithScripteMessageDelegate:self] name:@"fwzhouPay"];
+    [_wkWebView.configuration.userContentController addScriptMessageHandler:[[WeakScriptMessageDelegate alloc] initWithScripteMessageDelegate:self] name:@"fwzhouSetUpDevice"];
     
     // 已弱引用，仍然有内存泄漏，怪异
-//    [_wkWebView.configuration.userContentController addScriptMessageHandler:self name:@"umsPay"];
-//    [_wkWebView.configuration.userContentController addScriptMessageHandler:self name:@"umsSetUpDevice"];
+//    [_wkWebView.configuration.userContentController addScriptMessageHandler:self name:@"fwzhouPay"];
+//    [_wkWebView.configuration.userContentController addScriptMessageHandler:self name:@"fwzhouSetUpDevice"];
 }
 
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message
@@ -44,8 +44,8 @@
 
 - (void)dealloc
 {
-    [_wkWebView.configuration.userContentController removeScriptMessageHandlerForName:@"umsPay"];
-    [_wkWebView.configuration.userContentController removeScriptMessageHandlerForName:@"umsSetUpDevice"];
+    [_wkWebView.configuration.userContentController removeScriptMessageHandlerForName:@"fwzhouPay"];
+    [_wkWebView.configuration.userContentController removeScriptMessageHandlerForName:@"fwzhouSetUpDevice"];
 }
 
 @end

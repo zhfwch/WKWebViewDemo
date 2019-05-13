@@ -34,8 +34,8 @@
     [_wkWebView loadRequest:[NSURLRequest requestWithURL:url]];
     
     // WKScriptMessageHandler内存泄漏 见：https://www.jianshu.com/p/6ba2507445e4
-    [_wkWebView.configuration.userContentController addScriptMessageHandler:[[WeakScriptMessageDelegate alloc] initWithScripteMessageDelegate:self] name:@"umsPay"];
-    [_wkWebView.configuration.userContentController addScriptMessageHandler:[[WeakScriptMessageDelegate alloc] initWithScripteMessageDelegate:self] name:@"umsSetUpDevice"];
+    [_wkWebView.configuration.userContentController addScriptMessageHandler:[[WeakScriptMessageDelegate alloc] initWithScripteMessageDelegate:self] name:@"fwzhouPay"];
+    [_wkWebView.configuration.userContentController addScriptMessageHandler:[[WeakScriptMessageDelegate alloc] initWithScripteMessageDelegate:self] name:@"fwzhouSetUpDevice"];
 }
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
@@ -56,8 +56,8 @@
 - (void)dealloc
 {
     // 移除WKScriptMessageHandler
-    [_wkWebView.configuration.userContentController removeScriptMessageHandlerForName:@"umsPay"];
-    [_wkWebView.configuration.userContentController removeScriptMessageHandlerForName:@"umsSetUpDevice"];
+    [_wkWebView.configuration.userContentController removeScriptMessageHandlerForName:@"fwzhouPay"];
+    [_wkWebView.configuration.userContentController removeScriptMessageHandlerForName:@"fwzhouSetUpDevice"];
 }
 
 @end
